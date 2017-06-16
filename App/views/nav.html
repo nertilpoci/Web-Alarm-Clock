@@ -1,0 +1,55 @@
+﻿<!-- Dropdown Structure -->
+<ul id="dropdown1" class="dropdown-content">
+    <li><a data-bind="click:logoff" href="#">Logout</a></li>
+    <!--<li><a href="#!">two</a></li>
+    <li class="divider"></li>
+    <li><a href="#!">three</a></li>-->
+</ul>
+<ul id="dropdown2" class="dropdown-content">
+    <li><a data-bind="click:logoff" href="#">Logout</a></li>
+    <!--<li><a href="#!">two</a></li>
+    <li class="divider"></li>
+    <li><a href="#!">three</a></li>-->
+</ul>
+<nav>
+    <div class="nav-wrapper teal darken-3">
+
+        <a href="#" class="brand-logo"><img style="width: 60px" src="../../Content/Images/Clock.png"/></a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        
+        <ul class="right hide-on-med-and-down" >
+            <li>
+                <a class="red right" target="_blank" href="http://nertilpoci.github.io/Alarm-Manager/">New Desktop Version</a>
+            </li>
+                <!-- ko foreach: router.visibleRoutes -->
+<li>
+                <a data-bind="attr: { href: hash },
+                css: { active: isActive },
+                html: caption"></a>
+            </li>
+            <!-- /ko -->
+            
+            <li><a class="dropdown-button" href="" data-activates="dropdown1"><span data-bind="text:userName"></span></a></li>
+        </ul>
+
+        <ul class="side-nav" id="mobile-demo">
+            <li><a class="dropdown-button"  href="" data-activates="dropdown2"><span data-bind="text:userName"></span></a></li>
+
+            <!-- ko foreach: router.visibleRoutes -->
+            <li>
+                <a data-bind="attr: { href: hash },
+                css: { active: isActive },
+                html: caption"></a>
+            </li>
+            <!-- /ko -->
+
+        </ul>
+
+        <div data-bind="visible:router.isNavigating"
+             class="progress">
+            <div class="indeterminate"></div>
+        </div>
+
+       
+    </div>
+</nav>

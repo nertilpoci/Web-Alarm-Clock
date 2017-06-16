@@ -1,0 +1,142 @@
+﻿
+<div class="page-flexbox-wrapper">
+    <main>
+        <div class="row teal darken-3">
+            <div class="clock" style="width: 500px; margin: 0 auto 0"></div>
+        </div>
+        <div class="row">
+
+
+            <div class="col s12 m3">
+
+
+
+                <div class="card teal darken-3 small">
+                    <div class="card-image waves-effect waves-block waves-light teal darken-3 " style="padding:30px">
+                        <div class="white-text activator" data-bind="with:schedule">
+
+                            <div class="row">
+                                <div class="col m3 s3 "><i class="right red-text">Name: </i></div>
+                                <div class="col m9 s9 "><span data-bind="text:name" class="flow-text papercraft"></span></div>
+                            </div>
+                            <div class="row">
+                                <div class="col m3 s3 "><i class="right red-text">Description: </i></div>
+                                <div class="col m9 s9 "><span data-bind="text:description"></span></div>
+                            </div>
+                        
+                                <span class="papercraft activator" data-bind="visible: ($root.alarms().length ==0)">This schedule doesn't have any alarms. Click <a data-bind="attr: { href: '#/scheduledetails/' + id(), title: 'add new alarms' }">here</a> to add a schedule</span>
+                          
+                        </div>
+                        <div class="activator" data-bind="visible: ($root.schedule() == null) ? true : false">
+
+                            <span class="papercraft activator">You haven't set a default schedule yet. Click here to set on or go to schedules to create a new schedule.</span>
+                        </div>
+                    </div>
+                    <div class="card-content teal darken-3 white-text">
+                        <span class="card-title activator text-darken-4">Active Schedule<i class="material-icons right">more_vert</i></span>
+                        <p>
+                            <a href="#/schedules">View All Schedules</a>
+                        </p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Default Schedule<i class="material-icons right">close</i></span>
+                        <select data-bind="options: $root.schedules,
+                       optionsText: 'name' ,optionsCaption: 'Choose a schedule',value:schedule
+                      "></select>
+                        <span data-bind="with:schedule">
+                            <span class="papercraft activator" data-bind="visible: ($root.alarms().length ==0)">This schedule doesn't have any alarms. Click <a data-bind="attr: { href: '#/scheduledetails/' + id(), title: 'add new alarms' }">here</a> to add a schedule</span>
+                        </span>
+                        <div class="activator" data-bind="visible: ($root.schedules().length ==0) ? true : false">
+
+                         
+                              <span class="papercraft activator">You don't have any schedules set up. Click <a href="#/schedules">here</a> to add a schedule</span>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col s12 m5 " data-bind="with:alarm">
+                <div class="card teal darken-3 ">
+                    <div class="card-content white-text">
+                        <span class="card-title">Next Alarm</span>
+                        <div style="margin: 0 auto 0; margin-top: 20px;" class="clock2"></div>
+                        <blockquote>
+                            <p>
+                                <span class="red-text"> Next alarm At :</span> <i data-bind="text:time"></i>
+                            </p>
+
+                            <span class="red-text">  Note: </span>  <span data-bind="text:note" class="white-text"></span>
+                        </blockquote>  
+                    </div>
+                    <!--<div class="card-action">
+                        <a href="#">Change</a>
+                        <a href="#">Go to schedules</a>
+                    </div>-->
+                </div>
+            </div>
+            <div class="col s12 m4">
+
+
+
+                <div class="card teal darken-3 small">
+                    <div class="card-image waves-effect waves-block waves-light teal darken-3 " style="padding:30px">
+                        <div class="white-text activator">
+
+                            <div class="row">
+                                <div class="col m7 offset-m1 "><i style="font-size: 18px" class="right red-text">Available sounds </i></div>
+                                <div class="col m4 offset-m4 "><h1 data-bind="text:$root.musics().length" class="white-text"></h1></div>
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
+                    <div class="card-content teal darken-3 white-text">
+                        <span class="card-title activator text-darken-4">Sounds<i class="material-icons right">more_vert</i></span>
+                        <p>
+                            <a href="/#/musics">Go to sounds</a>
+                        </p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Sounds<i class="material-icons right">close</i></span>
+                        <select data-bind="options: musics,value:selectedMusic,
+                       optionsText: 'name' ,optionsCaption: 'Choose a sound to play'
+                      "></select>
+                        <div data-bind="with:selectedMusic,visible:($root.isPlaying()==false)">
+                            <a class="btn-floating btn-large waves-effect waves-light red" data-bind="click:$root.playManual" ><i class="material-icons"  >play_circle_outline</i></a>
+                        </div>
+                        <div data-bind="visible:isPlaying">
+                            <a class="btn-floating  waves-effect waves-light green" data-bind="click:stop"><i class="material-icons">pause_circle_outline</i></a>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </main>
+
+
+  <div id="audio-footer"data-bind="visible:isPlaying" class="teal darken-3" >
+
+      <div class="row">
+          <span class="red-text left" data-bind="visible:(note())" style="margin-top: 10px;font-size: 15px"> Note : <i  data-bind="text:note"></i></span> 
+          <div class="col right">
+              <a class="btn-floating btn waves-effect waves-light green center" style="margin-top: 10px" data-bind="click:stop"><i class="material-icons">pause_circle_outline</i></a>
+
+          </div>
+
+          <img class="right responsive-img" style="max-height: 80%" src="../../Content/Images/playing.gif"/>
+
+
+      </div>
+     
+      <audio id="main_player" style="display: none" controls>
+
+          <source id="mp3_src" type="audio/mpeg">
+          Your browser does not support the audio element.
+      </audio>
+  </div>
+</div>

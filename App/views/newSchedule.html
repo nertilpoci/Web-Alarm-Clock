@@ -1,0 +1,18 @@
+﻿
+<div class="row">
+    <form class="col s12">
+        <div class="row" data-bind="with:schedule">
+            <div class="input-field col s6 m3">
+                <input placeholder="Short distinctive name" id="name" type="text" data-bind="value:name" class="validate">
+                <label for="name"> Name</label>
+            </div>
+            <div class="input-field col s6 m3">
+                <input placeholder="Brief description" id="last_name" data-bind="value:description" type="text" class="validate">
+                <label for="last_name">Description</label>
+            </div>
+            <a class="btn btn-large waves-effect waves-light green" data-bind="activity:$root.createCmd.isExecuting,command:$root.createCmd"><i class="material-icons">add</i></a>
+
+        </div>
+
+    </form>
+</div>

@@ -1,0 +1,30 @@
+﻿/*.page-flexbox-wrapper{
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+main{
+  flex: 1 1 auto;
+
+}*/
+
+#audio-footer {
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height:50px;
+   width:100%;
+   background:#999;
+}
+.card {
+  position: relative;
+  background-color: #f4f4f4;
+  margin: 10px auto;
+  box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.7);
+  box-sizing: border-box;
+}
+
+.card {
+  padding-bottom: 5px;
+}
+

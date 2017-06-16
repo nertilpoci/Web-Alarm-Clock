@@ -1,0 +1,33 @@
+﻿
+
+
+
+        <div class="row" data-bind="foreach:schedules">
+            <div class="col s12 m3">
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title" data-bind="html:name">ajsldfjasdfkj</span>
+                        <p data-bind="html:description">
+                            slkdfjasldkfjasdlfjasdlf
+                        </p>
+                    </div>
+                    <div class="card-action">
+                        <a data-bind="attr: { href: '#/scheduledetails/' + id(), title: 'Go to details' }">Details</a>
+                        <a href="#"data-bind="activity:$root.deleteScheduleCmd.isExecuting,command:$root.deleteScheduleCmd">Delete</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+  
+<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+    <a class="btn-floating btn-large waves-effect waves-light  red" data-bind="click:showInsertModal"><i class="material-icons">add</i></a>
+    </div>
+    <div id="modal1" class="modal bottom-sheet">
+        <div class="modal-content">
+           
+            <div data-bind="compose:'viewmodels/newSchedule'"></div>
+
+        </div>
+
+    </div>

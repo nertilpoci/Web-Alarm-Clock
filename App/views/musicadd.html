@@ -1,0 +1,35 @@
+﻿
+<div class="container valign">
+    <div class="row ">
+        <div class="col m12">
+
+           <blockquote class="flow-text">Upload files to be used for alarms. You can upload only mp3 files.<br /><i class="red-text">The limit of total files is 10</i> </blockquote>
+
+        </div>
+        <div class="col m12">
+            <ul class="collection with-header" data-bind="foreach: musics">
+
+                <li class="collection-item">
+                    <div><span data-bind="text:name"></span> <a href="#" class="secondary-content"><i class="material-icons" data-bind="click:$root.removeFile">delete</i></a> <span style="margin-right:20px" class="white-text teal right" data-bind="text:$root.bytesFormatter(size)"></span></div>
+                </li>
+            </ul>
+        </div>
+        <div class="col m12">
+          
+           
+                <a class="waves-effect waves-light btn left" onclick="$('#uploadFile')[0].click();">
+                    Add Files
+                    <div class="file-field input-field" >
+                        <input type="file" accept=".mp3" multiple="multiple"  style="z-index:99999999999" id="uploadFile">
+                    </div>
+            </a>
+
+
+            <button class="waves-effect waves-light btn right" data-bind="click:upload ,visible: musics().length > 0,enable: isUploading()? false : true" ><i class="material-icons right">cloud</i><i data-bind="visible:isUploading" class="fa fa-spinner fa-spin fa-3x fa-fw"></i>Upload </button>
+          
+        </div>
+     
+    </div>
+
+</div>
+
